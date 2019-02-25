@@ -4,19 +4,24 @@
 
 이명규 lee95292@naver.com
 
-요   약
+# 요   약
+---
 
 N-way set associative Cache의 동작을 따라하는 Simulator를 C언어로 구현하였습니다. LRU를 비롯하여, Trace파일의 메모리 주소를 읽어 T/I/O 로 구분하고, 접근한 데이터를 2차원배열로 저장해줍니다. 이를 통해 Cache hit, Cache miss, Hit rate를 판별해주는 프로그램을 작성했습니다.
 
-실행환경
+## 실행환경
+
+---
+
 컴파일 쉘 스크립트: gcc -o cache_simulator cache_simulator.c -lm
 
 ( Math 라이브러리를 사용하므로, lm 옵션을 통해 추가해주어야 합니다.)
 
 우분투 Bash 쉘에서 실행하였으며, gcc 역시 우분투 초기버전 (gcc 5.4.0) 컴파일러에서 실행했습니다.
 
+ <br>
  
-1.  실습 프로그램의 구성 및 동작 원리
+### 1.  실습 프로그램의 구성 및 동작 원리
 
 1)	에러처리
 프로그램 실행 시작과 동시에 인자 값들을 읽어, 과제 개요에 설명된 예외들에 대해, 예외정보를 출력하고, 프로그램을 종료해줍니다. 
@@ -39,7 +44,7 @@ LRU[set][slot]  LRU[set][0]
 means : LRU value correspond to set
 ```
 
-__LRU와 가상Cache의 역할을 설명하는 그림 __ 
+__LRU와 가상Cache의 역할을 설명하는 코드 __ 
 
 
 
@@ -60,6 +65,7 @@ memset(cache[i],-1,sizeof(int)*assoc);
 memset(LRU[i],-1,sizeof(int)*assoc); 
 }
 ```
+ 
  __ LRU와 가상Cache 할당부분 __
 
 캐시와 LRU를 구현함에 있어, 이들은 Tag, Index, Associativity에 따라 항상 다른 크기를 가집니다. 따라서 동적으로 크기를 할당해주어 원하는 만큼의 공간만을 사용합니다.
@@ -77,7 +83,7 @@ memset(LRU[i],-1,sizeof(int)*assoc);
 
 3)	LRU 구현
 
- 
+<img src = "./img/lru.PNG"/> 
 __ LRU 구현 코드 __
 Input : 
 LRU 2차원 배열 / 접근 Block Index / Set Index 값
@@ -87,7 +93,7 @@ Output : (void)
 가장 나중에 사용된 블록을 LRU 배열의 가장 앞에 위치시킵니다.
 
  
-
+<img src="./img/Untitled Diagram\(1\)"/>
 블록에 접근할 때 마다, 해당 블록의 인덱스를 맨 뒤로 정렬시켜, LRU가 가장 앞에 위치하게 됩니다.
 
 
@@ -100,7 +106,7 @@ Output : (void)
 
 4)	Hit , Miss 판별
 
- 
+ <img src="./img/hitmiss.PNG"/>
 __ HIT / MISS 판별 코드 __
 
 메인 알고리즘인 Hit, miss 판별은 매우 간단합니다.
@@ -122,6 +128,7 @@ _2 : Capacity Miss인 경우 : LRU를 가장 최근에 사용된 블록으로 �
 
 2. 결과
  
+<img src="./img/res.PNG"/>
 __결과화면 __
 
 주어진 두 개의 트레이스 파일들에 대해 실행시킨 결과 화면입니다.
