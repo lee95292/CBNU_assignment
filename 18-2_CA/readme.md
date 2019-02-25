@@ -46,9 +46,7 @@ means : LRU value correspond to set
 
 __LRU와 가상Cache의 역할을 설명하는 코드 __ 
 
-
-
-
+<br><br>
 
 
 ```c
