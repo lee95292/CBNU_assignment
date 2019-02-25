@@ -91,7 +91,7 @@ Output : (void)
 가장 나중에 사용된 블록을 LRU 배열의 가장 앞에 위치시킵니다.
 
  
-<img src="./img/Untitled Diagram\(1\)"/>
+<img src="./img/Untitled Diagram(1)"/>
 블록에 접근할 때 마다, 해당 블록의 인덱스를 맨 뒤로 정렬시켜, LRU가 가장 앞에 위치하게 됩니다.
 
 
@@ -104,7 +104,7 @@ Output : (void)
 
 4)	Hit , Miss 판별
 
- <img src="./img/hitmiss.PNG"/>
+ <img src="./img/hit_miss.PNG"/>
 __ HIT / MISS 판별 코드 __
 
 메인 알고리즘인 Hit, miss 판별은 매우 간단합니다.
