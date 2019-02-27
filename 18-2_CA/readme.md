@@ -57,10 +57,10 @@ memset(LRU,0,sizeof(LRU));
 
 for(int i=0;i<(int)pow(2,indx);i++)
 {
-cache[i]=(int*)malloc(sizeof(int)*assoc);
-LRU[i] = (int*)malloc(sizeof(int)*assoc);
-memset(cache[i],-1,sizeof(int)*assoc);
-memset(LRU[i],-1,sizeof(int)*assoc); 
+  cache[i]=(int*)malloc(sizeof(int)*assoc);
+  LRU[i] = (int*)malloc(sizeof(int)*assoc);
+  memset(cache[i],-1,sizeof(int)*assoc);
+  memset(LRU[i],-1,sizeof(int)*assoc); 
 }
 ```
  
